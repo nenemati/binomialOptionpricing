@@ -12,7 +12,8 @@ s_price = float(30)
 s_u = float(35)
 s_d = float(25)
 e = float(30)
-rf_interestRate = float(.05)
+rf_interestRate = 1 + float(.05)
+
 
 c_price_u = s_u - e
 c_price_d = s_d - e
@@ -26,8 +27,22 @@ def hedge_ratio_proportion(ratio):
     multiplier = 1 / ratio
     return multiplier
 
-v_u = s_u - hedge_ratio_proportion(hedge_ratio) * c_price_u
-v_d = s_d - hedge_ratio_proportion(hedge_ratio) * c_price_d
+prop_value = hedge_ratio_proportion(hedge_ratio)
+
+v_u = s_u -  prop_value * c_price_u
+v_d = s_d - prop_value * c_price_d
 
 if v_u!=v_d:
     print "Arbitrage Exist!"
+
+#work on this a bit more
+# c = (v_u - s_price) / (rf_interestRate) * -1
+
+
+print v_u - s_price
+
+
+
+
+
+# print c
