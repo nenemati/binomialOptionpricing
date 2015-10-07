@@ -8,12 +8,11 @@ import math
 # s_d = int(raw_input())
 # print "Input Strike Price"
 # e = int(raw_input())
-s_price = float(30)
-s_u = float(35)
-s_d = float(25)
+s_price = float(100)
+s_u = float(125)
+s_d = float(75)
 e = float(30)
 rf_interestRate = 1 + float(.05)
-
 
 c_price_u = s_u - e
 c_price_d = s_d - e
@@ -36,10 +35,16 @@ if v_u!=v_d:
     print "Arbitrage Exist!"
 
 #work on this a bit more
-# c = (v_u - s_price) / (rf_interestRate) * -1
+c = (s_price - v_u / rf_interestRate) / prop_value
+
+# / (rf_interestRate)
+
+print "Call price is %s" % c
+
+# print v_u - s_price
 
 
-print v_u - s_price
+
 
 
 
